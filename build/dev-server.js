@@ -21,6 +21,28 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+// mock data
+var appData = require('../data.json')
+var sendCode = appData.sendCode
+var login = appData.login
+var apiRoutes = express.Router()
+
+apiRoutes.get('/code', function (req, res) {
+  res.json({
+    code: 200,
+    data: sendCode
+  })
+})
+
+apiRoutes.get('/login', function (req, res) {
+  res.json({
+    code: 200,
+    data: login
+  })
+})
+app.use('/api', apiRoutes);
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -32,6 +54,7 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler, {
   log: false,
   heartbeat: 2000
 })
+
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {

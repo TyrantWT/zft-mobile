@@ -3,7 +3,6 @@
 import App from './App';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueResource from 'vue-resource';
 import Login from 'components/login/login';
 import notFoundPage from 'components/404/404';
 import MintUI from 'mint-ui';
@@ -11,7 +10,6 @@ import 'common/stylus/index.styl';
 import 'mint-ui/lib/style.css';
 
 Vue.use(VueRouter);
-Vue.use(VueResource);
 Vue.use(MintUI);
 const routes = [
   {path: '/', component: Login},
@@ -19,6 +17,7 @@ const routes = [
   {path: '/404', component: notFoundPage}
 ];
 let router = new VueRouter({
+  mode: 'history',
   routes,
   linkActiveClass: 'active'
 });
