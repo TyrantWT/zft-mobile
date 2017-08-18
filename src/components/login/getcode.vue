@@ -40,18 +40,18 @@
           clearInterval(time);
         }
       }, 100);
-      // axios.get('/api/code', {mobile: tel}).then((response) => {
-       axios.get('/r/VerifyCode_sendBindWxCode', {mobile: tel}).then((response) => {
-          console.log(response);
-          if (response.code === 200) {
+       // axios.get('/r/VerifyCode_sendBindWxCode', {mobile: tel}).then((response) => {
+       axios.get('/api/code', {mobile: tel}).then((response) => {
+          console.log(response, response.status, response.data);
+          if (response.status === 200) {
             Toast({
-              message: '验证码已发送',
+              message: response.data.data.msg,
               position: 'bottom',
               duration: 2000
             });
           } else {
             Toast({
-              message: response.msg,
+              message: response.data.data.msg,
               position: 'bottom',
               duration: 2000
             });

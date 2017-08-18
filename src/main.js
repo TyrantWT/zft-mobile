@@ -12,7 +12,7 @@ import 'mint-ui/lib/style.css';
 Vue.use(VueRouter);
 Vue.use(MintUI);
 const routes = [
-  {path: '/', component: Login},
+  {path: '/', redirect: '/login'},
   {path: '/login', component: Login},
   {path: '/404', component: notFoundPage}
 ];
