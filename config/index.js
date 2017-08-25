@@ -6,7 +6,7 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'wx/static',
+    assetsSubDirectory: '',
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -23,18 +23,23 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8090,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      'code': {
+      '/r/verify_code': {
+        target: 'http://zft.12301.local/r/VerifyCode_checkWxBindCode',
+        changeOrigin: true
+      },
+      '/r/get_code': {
         target: 'http://zft.12301.local/r/VerifyCode_sendBindWxCode',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/code': '/code'
-        }
-      }
+        changeOrigin: true
+      },
+      '/r/oauth2': {
+        target: 'http://zft.12301.local/index/wx/oauth2',
+        changeOrigin: true
+      },
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
