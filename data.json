@@ -1,11 +1,8 @@
 {
-  "sendCode": {
-    "msg": "发送成功aa"
-  },
-  "login": {
-    "msg": "绑定成功！aa"
-  },
-  "getOpenId": {
-    "msg": "aaaa"
+  "settlement": {
+    "msg": "发送成功aa",
+    "data": [
+      
+    ]
   }
 }

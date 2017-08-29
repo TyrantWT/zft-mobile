@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <div class="login">
       <div class="form">
         <p class="title">账号绑定</p>
@@ -10,7 +10,6 @@
         <mt-button class="btn-login" type="primary" size="large" @click.native="doLogin">登录</mt-button>
       </div>
     </div>
-      <div class="bg"></div>
   </div>
 </template>
 
@@ -32,7 +31,7 @@ export default {
   components: {
     getCode
   },
-  created: function () {
+  mounted() {
     let code = this.getUrl('code');
     this.$ajax({
       url: 'http://zft.louxiaomei.com/r/Wx_oauth2',
@@ -73,12 +72,12 @@ export default {
           spinnerType: 'fadeing-circle'
         });
         if (res.data.code === 200) {
-          setTimeout(function () {
+          setTimeout(function() {
             Indicator.close();
           }, 1000);
           this.$router.push('/close');
         } else {
-          setTimeout(function () {
+          setTimeout(function() {
             Indicator.close();
           }, 10);
           return Toast({
@@ -144,29 +143,27 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/mixin.styl"
-  .login
-    margin: 5% 0
-    .form
-      display: block
-      height: 40%
-      padding: 0 10px 10px
-      .title
-        display: block
-        width: 100%
-        height: 80px
-        line-height: 80px
-        margin: 0 10px
-        font-size: 30px
-        text-align: center
-      .btn-login
-        margin: 5% 0
-  .bg
-    position: fixed
-    bottom: 0
+  .content
+    position: absolute
+    min-height: 100%
+    min-width: 100%
+    left: 0
+    top: 0
     z-index: -1
-    width: 100%
-    min-height: 300px
     background: url('./lg-bg.jpg') no-repeat
     background-size: cover
+    overflow: hidden
+    .login
+      margin: 5% 0
+      .form
+        height: 40%
+        padding: 0 10px
+        .title
+          height: 80px
+          line-height: 80px
+          margin: 0 10px
+          font-size: 30px
+          text-align: center
+        .btn-login
+          margin: 5% 0
 </style>

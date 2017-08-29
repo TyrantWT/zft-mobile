@@ -23,32 +23,18 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 
 // mock data
-/* var apiRoutes = express.Router()
+ var apiRoutes = express.Router()
 var appData = require('../data.json')
-var sendCode = appData.sendCode
-var login = appData.login
+var settlement = appData.settlement
 
-apiRoutes.get('/code', function (req, res) {
+apiRoutes.get('/settlement', function (req, res) {
   res.json({
     code: 200,
-    data: sendCode
+    data: settlement
   })
 })
 
-apiRoutes.get('/login', function (req, res) {
-  res.json({
-    code: 200,
-    data: login
-  })
-})
-
-apiRoutes.get('/getOpenId', function (req, res) {
-  res.json({
-    code: 200,
-    data: getOpenId
-  })
-})
-app.use('/api', apiRoutes); */
+app.use('/api', apiRoutes); 
 
 var compiler = webpack(webpackConfig)
 

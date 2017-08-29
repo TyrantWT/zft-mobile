@@ -1,6 +1,6 @@
-# zft-mb
+# zft-mobile
 
-> zft-mobile-project
+> 租付通微信页面前端代码 （vue-cli + webpack）
 
 ## Build Setup
 
