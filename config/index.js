@@ -29,17 +29,25 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/r/verify_code': {
-        target: 'http://zft.12301.local/r/VerifyCode_checkWxBindCode',
+        target: 'http://wx.zft.local/r/VerifyCode_checkWxBindCode',
         changeOrigin: true
       },
       '/r/get_code': {
-        target: 'http://zft.12301.local/r/VerifyCode_sendBindWxCode',
+        target: 'http://wx.zft.local/r/VerifyCode_sendBindWxCode',
         changeOrigin: true
       },
       '/r/oauth2': {
-        target: 'http://zft.12301.local/index/wx/oauth2',
+        target: 'http://wx.zft.local/index/wx/oauth2',
         changeOrigin: true
       },
+      '/r/Statistics_houseStatistics': {
+        target: 'http://wx.zft.local/r/Statistics_houseStatistics',
+        changeOrigin: true
+      },
+      '/r/Statistics_moneyStatistics': {
+        target: 'http://wx.zft.local/r/Statistics_moneyStatistics',
+        changeOrigin: true
+      }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

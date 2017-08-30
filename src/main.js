@@ -8,7 +8,8 @@ import close from 'components/login/close';
 import settlement from 'components/settlement/settlement';
 import analyse from 'components/analyse/analyse';
 import messages from 'components/messages/messages';
-import getcode from 'components/login/getauth';
+import getcode from 'components/common/getauth';
+import setid from 'components/common/setOpenid';
 import notFoundPage from 'components/404/404';
 import MintUI from 'mint-ui';
 import 'common/stylus/index.styl';
@@ -26,6 +27,7 @@ const routes = [
   {path: '/settlement', component: settlement}, // 已/未结算统计页面
   {path: '/analyse', component: analyse}, // 运营分析
   {path: '/messages', component: messages}, // 已/未读消息
+  {path: '/setid', component: setid},  // 获取并设置openid
   {path: '/404', component: notFoundPage},
   {path: '*', component: notFoundPage}
 ];

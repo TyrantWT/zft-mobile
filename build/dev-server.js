@@ -23,7 +23,7 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 
 // mock data
- var apiRoutes = express.Router()
+/*  var apiRoutes = express.Router()
 var appData = require('../data.json')
 var settlement = appData.settlement
 
@@ -34,7 +34,7 @@ apiRoutes.get('/settlement', function (req, res) {
   })
 })
 
-app.use('/api', apiRoutes); 
+app.use('/api', apiRoutes);  */
 
 var compiler = webpack(webpackConfig)
 

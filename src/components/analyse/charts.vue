@@ -1,7 +1,6 @@
 <template>
   <div>
     <div id="content" class="pie">
-
     </div>
   </div>
 </template>
@@ -16,9 +15,15 @@ export default {
       option: ['已出租', '未出租']
     };
   },
+  props: {
+    chart: {
+      type: Object
+    }
+  },
   methods: {
     drawPie(id) {
       this.charts = echarts.init(document.getElementById(id));
+      console.log(this.chart);
       this.charts.setOption({
         series: [
           {
@@ -26,8 +31,8 @@ export default {
             type: 'pie',
             radius: '100%',
             data: [
-              { value: 10, name: '已租33%' },
-              { value: 90, name: '未租67%' }
+              { value: this.chart.sum_rent, name: '已租%' },
+              { value: this.chart.sum_un_rent, name: '未租%' }
             ],
             label: {
               normal: {
@@ -36,7 +41,8 @@ export default {
                 color: '#e1e4e5',
                 backgroundColor: 'rgba(0,0,0,0.2)'
               }
-            }
+            },
+            hoverAnimation: false
           }
         ]
       });
@@ -44,7 +50,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.drawPie('content');
+        this.drawPie('content');
     });
   }
 };
